@@ -22,3 +22,7 @@ Then you can use it simply like:
 
     cat simple.er  | erd png > s.png
 
+If using Ubuntu 18.04 you can also do the following and get the full version (which seems to work)
+
+    docker run -i erd bash -c 'cat /root/.cabal/bin/erd' > ~/.local/bin/erd
+    chmod +x ~/.local/bin/erd
