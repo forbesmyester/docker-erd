@@ -2,9 +2,9 @@
 
 ERD does not run on Ubuntu 18.04 yet. This is a Dockerfile which builds you a running ERD upon Ubuntu 16.04 which you can then pipe into using the following
 
-    docker build -t erd .
+    docker build -t docker-erd .
     curl 'https://raw.githubusercontent.com/BurntSushi/erd/master/examples/simple.er' > simple.er
-    cat simple.er | docker run -i erd bash -c 'erd -f png' > simple.png
+    cat simple.er | docker run -i docker-erd bash -c 'erd -f png' > simple.png
     xdg-open simple.png # or however you do this on your OS
 
 During this process you have:
@@ -24,5 +24,5 @@ Then you can use it simply like:
 
 If using Ubuntu 18.04 you can also do the following and get the full version (which seems to work)
 
-    docker run -i erd bash -c 'cat /root/.cabal/bin/erd' > ~/.local/bin/erd
-    chmod +x ~/.local/bin/erd
+    docker run -i docker-erd bash -c 'cat /root/.cabal/bin/erd' > ~/.vendor/bin/erd
+    chmod +x ~/.vendor/bin/erd
