@@ -4,7 +4,7 @@ ERD does not run on Ubuntu 18.04 yet. This is a Dockerfile which builds you a ru
 
     docker build -t docker-erd .
     curl 'https://raw.githubusercontent.com/BurntSushi/erd/master/examples/simple.er' > simple.er
-    cat simple.er | docker run -i docker-erd bash -c 'erd -f png' > simple.png
+    cat simple.er | docker run -i docker-erd bash -c '/root/.cabal/bin/erd -f png' > simple.png
     xdg-open simple.png # or however you do this on your OS
 
 During this process you have:
@@ -26,3 +26,7 @@ If using Ubuntu 18.04 you can also do the following and get the full version (wh
 
     docker run -i docker-erd bash -c 'cat /root/.cabal/bin/erd' > ~/.vendor/bin/erd
     chmod +x ~/.vendor/bin/erd
+    curl 'https://raw.githubusercontent.com/BurntSushi/erd/master/examples/simple.er' | erd -f png > simple.png
+    feh simple.png
+
+If you're on a different version of Ubuntu you could try twiddling with the FROM line of the `Dockerfile` and it may well work.
